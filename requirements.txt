@@ -11,3 +11,4 @@ tensorboard
 tensorboardx
 --find-links https://storage.googleapis.com/jax-releases/jax_releases.html
 jax[cuda]>=version
+transformers
