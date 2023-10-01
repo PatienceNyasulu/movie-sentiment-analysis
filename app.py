@@ -1,5 +1,6 @@
 import streamlit as st
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
+import torch
 
 # Load the tokenizer
 tokenizer = AutoTokenizer.from_pretrained('bert-base-uncased')
