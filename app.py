@@ -30,7 +30,7 @@ def main():
     st.title("Movie Sentiment Analysis")
 
    # Add a picture
-    st.image("barbie.jpg", caption="Barbie (movietitle)", use_column_width=True, width=34, height=34)
+    st.image("barbie.jpg", caption="Barbie (movietitle)", width=34, height=34)
 
     
     st.write("Enter a movie review to predict the sentiment (positive or negative).")
