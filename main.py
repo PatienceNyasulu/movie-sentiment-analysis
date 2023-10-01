@@ -8,11 +8,22 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trai
 
 
 # Load the tokenizer
-with open('tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
+#with open('tokenizer.pickle', 'rb') as handle:
+    #tokenizer = pickle.load(handle)
+
+from transformers import BertTokenizerFast, TFBertForSequenceClassification
+
+# Load the tokenizer
+tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
 
 # Load the trained model
-model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
+model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased')
+
+
+# Load the trained model
+#model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
+model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased')
+
 # Function to preprocess the input text
 #def preprocess_text(text):
     # Tokenize the text
