@@ -1,4 +1,5 @@
 tensorflow
+textblob
 tqdm
 streamlit
 numpy
