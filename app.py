@@ -49,7 +49,7 @@ def main():
         # Display sentiment score
         st.write("Sentiment Score:", sentiment_score)
         # Interpret sentiment
-        if sentiment_score > 0:
+        if sentiment_score >= 0.5:
             st.write("Sentiment: Positive")
         else :
             st.write("Sentiment: Negative")
