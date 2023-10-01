@@ -24,21 +24,36 @@ def predict_sentiment(text):
         probabilities = torch.softmax(logits, dim=1).squeeze()
     sentiment = probabilities[1].item()  # Probability of positive sentiment
     return sentiment
+#for calculating percentage sentiment score
+from textblob import TextBlob
+def get_sentiment_score(text):
+    blob = TextBlob(text)
+    sentiment_score = blob.sentiment.polarity
+    return sentiment_score
 
 # Streamlit app
 def main():
-    st.title("Movie Sentiment Analysis")
+    st.title("Movie Sentiment Analysis using Bert")
 
    # Add a picture
-    st.image("barbie.jpg", caption="Barbie (movietitle)", width=300, height=200)
+    st.image("barbie.jpg", caption="Barbie (movietitle)", use_column_width=True)
 
     
-    st.write("Enter a movie review to predict the sentiment (positive or negative).")
+    st.write("Enter a movie review for the Barbie movie to predict the sentiment (positive or negative).")
 
     # Text input box
-    review = st.text_area("Enter a movie review:", "")
+    review = st.text_area("Enter a review :", "")
 
     if st.button("Analyze"):
+        sentiment_score = calculate_sentiment(review)
+        # Display sentiment score
+        st.write("Sentiment Score:", sentiment_score)
+        # Interpret sentiment
+        if sentiment_score > 0:
+            st.write("Sentiment: Positive")
+        else sentiment_score < 0:
+            st.write("Sentiment: Negative")
+       
         if review:
             # Predict sentiment
             sentiment = predict_sentiment(review)
