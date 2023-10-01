@@ -28,6 +28,11 @@ def predict_sentiment(text):
 # Streamlit app
 def main():
     st.title("Movie Sentiment Analysis")
+
+   # Add a picture
+    st.image("C:\Users\User\Pictures\IMG-20231001-WA0054.jpg", caption="Barbie (movietitle)", use_column_width=True)
+
+    
     st.write("Enter a movie review to predict the sentiment (positive or negative).")
 
     # Text input box
