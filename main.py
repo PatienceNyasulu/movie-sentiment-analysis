@@ -8,13 +8,13 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trai
 
 
 # Load the tokenizer
-#with open('tokenizer.pickle', 'rb') as handle:
-    #tokenizer = pickle.load(handle)
+with open('tokenizer.pickle', 'rb') as handle:
+    tokenizer = pickle.load(handle)
 
 from transformers import BertTokenizerFast, TFBertForSequenceClassification
 
 # Load the tokenizer
-tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
+#tokenizer = BertTokenizerFast.from_pretrained('bert-base-uncased')
 
 # Load the trained model
 model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased')
@@ -34,8 +34,19 @@ model = TFBertForSequenceClassification.from_pretrained('bert-base-uncased')
 
 def preprocess_text(text):
     # Tokenize and encode the text
-    encoding = tokenizer.encode_plus(text, max_length=100, truncation=True, padding='max_length', return_tensors='tf')
-    return encoding
+    #encoding = tokenizer.encode_plus(text, max_length=100, truncation=True, padding='max_length', return_tensors='tf')
+    #return encoding
+
+
+    sample_inputs = tokenizer(text, padding="max_length", truncation=True, max_length=512, return_tensors="pt")
+
+# Move inputs to device (if GPU available)
+    sample_inputs.to(training_args.device)
+
+# Make prediction
+    predictions = model(**sample_inputs)
+    predicted_class = predictions.logits.argmax(-1).item()
+
 
 # Function to predict the sentiment
 #def predict_sentiment(text):
@@ -46,13 +57,13 @@ def preprocess_text(text):
  #   return sentiment
 
 # Function to predict sentiment
-def predict_sentiment(text):
+#def predict_sentiment(text):
     # Preprocess the text
-    encoding = preprocess_text(text)
+    #encoding = preprocess_text(text)
     # Make predictions
-    prediction = model.predict(encoding)
-    sentiment = prediction[0][0]
-    return sentiment
+    #prediction = model.predict(encoding)
+    #sentiment = prediction[0][0]
+    #return sentiment
 
 
 # Streamlit app
