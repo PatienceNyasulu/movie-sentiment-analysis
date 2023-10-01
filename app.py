@@ -49,21 +49,21 @@ def main():
         # Display sentiment score
         st.write("Sentiment Score:", sentiment_score)
         # Interpret sentiment
-        if sentiment_score >= 0.5:
+        if sentiment_score > 0:
             st.write("Sentiment: Positive")
         else :
             st.write("Sentiment: Negative")
        
-        if review:
+    if review:
             # Predict sentiment
-            sentiment = predict_sentiment(review)
+        sentiment = predict_sentiment(review)
 
             # Display the sentiment
-            if sentiment >= 0.5:
+        if sentiment >= 0.5:
                 st.success("Positive sentiment")
-            else:
-                st.error("Negative sentiment")
         else:
+                st.error("Negative sentiment")
+    else:
             st.warning("Please enter a movie review.")
 
 if __name__ == '__main__':
