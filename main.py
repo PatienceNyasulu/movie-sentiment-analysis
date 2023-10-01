@@ -27,12 +27,22 @@ def preprocess_text(text):
     return encoding
 
 # Function to predict the sentiment
+#def predict_sentiment(text):
+    # Preprocess the text
+  #  sequence = preprocess_text(text)
+    # Make predictions
+#    sentiment = model.predict_classes(sequence)[0][0]
+ #   return sentiment
+
+# Function to predict sentiment
 def predict_sentiment(text):
     # Preprocess the text
-    sequence = preprocess_text(text)
+    encoding = preprocess_text(text)
     # Make predictions
-    sentiment = model.predict_classes(sequence)[0][0]
+    prediction = model.predict(encoding)
+    sentiment = prediction[0][0]
     return sentiment
+
 
 # Streamlit app
 def main():
