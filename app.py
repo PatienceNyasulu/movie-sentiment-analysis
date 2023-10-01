@@ -60,11 +60,11 @@ def main():
 
             # Display the sentiment
         if sentiment >= 0.5:
-                st.success("Positive sentiment")
+             st.success("Positive sentiment")
         else:
-                st.error("Negative sentiment")
+             st.error("Negative sentiment")
     else:
-            st.warning("Please enter a movie review.")
+        st.warning("Please enter a movie review.")
 
 if __name__ == '__main__':
     main()
