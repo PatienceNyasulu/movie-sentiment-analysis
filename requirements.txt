@@ -1,6 +1,7 @@
 tensorflow
 textblob
 tqdm
+textblob
 streamlit
 numpy
 opencv-python
