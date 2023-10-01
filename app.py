@@ -50,9 +50,9 @@ def main():
         st.write("Sentiment Score:", sentiment_score)
         # Interpret sentiment
         if sentiment_score > 0:
-            st.write("Sentiment: Positive")
+            st.write("Sentiment Score: Positive")
         else :
-            st.write("Sentiment: Negative")
+            st.write("Sentiment Score: Negative")
        
     if review:
             # Predict sentiment
