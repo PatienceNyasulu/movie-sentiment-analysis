@@ -26,7 +26,7 @@ def predict_sentiment(text):
     return sentiment
 #for calculating percentage sentiment score
 from textblob import TextBlob
-def calculate_sentimen(text):
+def calculate_sentiment(text):
     blob = TextBlob(text)
     sentiment_score = blob.sentiment.polarity
     return sentiment_score
