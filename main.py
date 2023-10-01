@@ -14,12 +14,17 @@ with open('tokenizer.pickle', 'rb') as handle:
 # Load the trained model
 model = AutoModelForSequenceClassification.from_pretrained('bert-base-uncased', num_labels=2)
 # Function to preprocess the input text
-def preprocess_text(text):
+#def preprocess_text(text):
     # Tokenize the text
-    sequence = tokenizer.texts_to_sequences([text])
+  #  sequence = tokenizer.texts_to_sequences([text])
     # Pad the sequence
-    sequence = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=100)
-    return sequence
+  #  sequence = tf.keras.preprocessing.sequence.pad_sequences(sequence, maxlen=100)
+  #  return sequence
+
+def preprocess_text(text):
+    # Tokenize and encode the text
+    encoding = tokenizer.encode_plus(text, max_length=100, truncation=True, padding='max_length', return_tensors='tf')
+    return encoding
 
 # Function to predict the sentiment
 def predict_sentiment(text):
