@@ -59,7 +59,7 @@ def main():
         sentiment = predict_sentiment(review)
 
             # Display the sentiment
-        if sentiment ==1:
+        if sentiment >0.5:
              st.success("Positive sentiment")
         else:
              st.error("Negative sentiment")
