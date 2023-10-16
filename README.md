@@ -8,6 +8,9 @@ This repository contains code for performing sentiment analysis on movie reviews
 
 https://movie-sentiment-analysis-ehmn9tdga4smvhg6sfb7vt.streamlit.app/
 
+## Link to Vimeo clip
+https://vimeo.com/874931685?share=copy
+
 ## Installation
 
 To run this application locally, you need to follow these steps:
