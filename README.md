@@ -4,7 +4,7 @@
 
 This repository contains code for performing sentiment analysis on movie reviews using the BERT (Bidirectional Encoder Representations from Transformers) model and deploying it as a web application using Streamlit. The app predicts whether a given movie review has a positive or negative sentiment.
 
-**##Link to deployed Streamlit app**
+## Link to deployed Streamlit app
 
 https://movie-sentiment-analysis-ehmn9tdga4smvhg6sfb7vt.streamlit.app/
 
